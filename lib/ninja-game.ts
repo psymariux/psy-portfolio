@@ -179,7 +179,7 @@ export function readSave(value: string | null, strict = false): GameState {
     return { ...base, ...frontier, version: 3, tiles: s.tiles, x: s.x, y: s.y, facing: s.facing, hp: s.hp, chakra: s.chakra, wood: s.wood, stone: s.stone, scrolls: s.scrolls, enemies: s.enemies.map((e: Ninja) => ({ x: e.x, y: e.y, hp: e.hp, kind: e.kind })), inventory: Object.fromEntries(Object.keys(base.inventory).map(k => [k, s.inventory[k] ?? base.inventory[k as keyof Inventory]])) as Inventory, quests: s.quests, upgrades: s.upgrades, projectiles: s.projectiles.map((p: Projectile) => ({ x: p.x, y: p.y, dx: p.dx, dy: p.dy, left: p.left, damage: p.damage, hostile: p.hostile, kind: p.kind })) };
   } catch { if (strict) throw new Error("Invalid world save. Your current world was not changed."); return createGame(); }
 }
-function canStand(s: GameState, x: number, y: number) {
+export function canStand(s: GameState, x: number, y: number) {
   return coordinate(x) && coordinate(y) && !solid(tileAt(s, x, y)) && !npcs.some(n => n.x === x && n.y === y) && !allEnemies(s).some(e => e.hp > 0 && e.x === x && e.y === y);
 }
 export function movePlayer(s: GameState, dx: number, dy: number) {
