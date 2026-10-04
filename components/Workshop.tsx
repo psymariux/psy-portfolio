@@ -175,7 +175,7 @@ export default function Workshop({ data: initialData }: { data: PortfolioData })
   }, [lit, stopRitual]);
   const closeDream = useCallback(() => { setDream(false); sceneController.current?.reset(); if (!ready) onSleepChange(false); }, [onSleepChange, ready]);
   function resumeDream() { closePanels(); setDreamIntro(false); setDream(true); }
-  useEffect(() => { try { if (sessionStorage.getItem("psymariux:dream-unlocked") === "1") setDreamUnlocked(true); } catch { /* Storage is optional. */ } }, []);
+  useEffect(() => { try { if (/^#world=[a-f0-9]{24}$/.test(location.hash) || sessionStorage.getItem("psymariux:dream-unlocked") === "1") setDreamUnlocked(true); } catch { /* Storage is optional. */ } }, []);
   function toggleNight() {
     // The moon puts Psymariux to bed (night dims the room). Anything else
     // wakes him: he grabs a torch and walks over to open it.
@@ -323,7 +323,7 @@ export default function Workshop({ data: initialData }: { data: PortfolioData })
     <a className="skip-link" href="#projects" inert={!entered}>Skip to projects</a>
     <div className="site-shell" data-lights={lit ? "warm" : "dim"} inert={!entered || dream}>
       <header className="workshop-header"><a className="brand" href="#home" aria-label="Psymariux workshop home"><span className="italian-signature" aria-label="Italian signature"><i /><i /><i /></span><span>Psymariux<span className="brand-caption">developer workshop</span></span></a>
-        <div className="ambient-controls"><button ref={commandTrigger} className="icon-button command-toggle" onClick={showCommands} aria-label="Open quick navigation" aria-haspopup="dialog" aria-keyshortcuts="Control+k Meta+k" title="Quick navigation (Ctrl/Cmd+K)"><Icon name="search" /><kbd>Ctrl K</kbd></button>{dreamUnlocked && <button className="text-button dream-resume" onClick={resumeDream}>Resume dream</button>}<button className="icon-button" onClick={toggleSound} aria-label={sound ? "Turn sound effects off" : "Turn sound effects on"} aria-pressed={sound} title={sound ? "Sound effects on" : "Sound effects off"}><Icon name={sound ? "volume-2" : "volume-x"} /></button><button className="icon-button" onClick={toggleNight} aria-label={sleeping ? "Wake Psymariux" : "Put Psymariux to sleep"} aria-pressed={sleeping} title={sleeping ? "Wake up" : "Night"}><Icon name={sleeping ? "sun" : "moon"} /></button></div>
+        <div className="ambient-controls"><button ref={commandTrigger} className="icon-button command-toggle" onClick={showCommands} aria-label="Open quick navigation" aria-haspopup="dialog" aria-keyshortcuts="Control+k Meta+k" title="Quick navigation (Ctrl/Cmd+K)"><Icon name="search" /><kbd>Ctrl K</kbd></button>{dreamUnlocked && <button className="text-button dream-resume" onClick={resumeDream}>{typeof window !== "undefined" && /^#world=[a-f0-9]{24}$/.test(location.hash) ? "Join shared world" : "Resume dream"}</button>}<button className="icon-button" onClick={toggleSound} aria-label={sound ? "Turn sound effects off" : "Turn sound effects on"} aria-pressed={sound} title={sound ? "Sound effects on" : "Sound effects off"}><Icon name={sound ? "volume-2" : "volume-x"} /></button><button className="icon-button" onClick={toggleNight} aria-label={sleeping ? "Wake Psymariux" : "Put Psymariux to sleep"} aria-pressed={sleeping} title={sleeping ? "Wake up" : "Night"}><Icon name={sleeping ? "sun" : "moon"} /></button></div>
       </header>
       <main id="home">
         <section className="hero" aria-labelledby="welcome-heading">

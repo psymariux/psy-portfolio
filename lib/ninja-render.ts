@@ -64,6 +64,9 @@ function gamePlayer(ctx: CanvasRenderingContext2D, skin: HTMLImageElement, x: nu
   else { slice(-6 * reverse, -24 - stride - reach, 4, 12, 4, 40, 16, 40, 32); slice(6 * reverse, -24 + stride, 4, 12, 4, 32, 48, 48, 48); }
   slice(0, -32, 8, 8, 8, 0, 0, 32, 0);
 }
+export function drawInventoryCharacter(ctx: CanvasRenderingContext2D, skin: HTMLImageElement) {
+  ctx.clearRect(0, 0, 96, 120); ctx.save(); ctx.imageSmoothingEnabled = false; ctx.scale(3, 3); gamePlayer(ctx, skin, 16, 36, [0, 1], 0, 0); ctx.restore();
+}
 function person(ctx: CanvasRenderingContext2D, x: number, y: number, color: string, style = "supplies", stride = 0, facing: number[] = [0, 1]) {
   const back = facing[1] < 0, side = facing[0] !== 0, skin = style === "builder" ? "#d7a178" : "#eac29a";
   box(ctx, "#35605b", x + 2, y + 12, 12, 3);
@@ -128,7 +131,7 @@ function decoration(ctx: CanvasRenderingContext2D, tile: number, x: number, y: n
     box(ctx, "#cf7d67", x + 2, y + 3, 5, 2); box(ctx, "#7d514e", x + 10, y + 9, 4, 2);
   }
 }
-export function drawWorld(ctx: CanvasRenderingContext2D, s: GameState, skin: HTMLImageElement, now: number, moving = false, reduced = false, freeze = 0, motions?: Map<string, SpriteMotion>, action?: { kind: string; started: number }, jumpStarted = -Infinity) {
+export function drawWorld(ctx: CanvasRenderingContext2D, s: GameState, skin: HTMLImageElement, now: number, moving = false, reduced = false, freeze = 0, motions?: Map<string, SpriteMotion>, action?: { kind: string; started: number }, jumpStarted = -Infinity, peers: readonly { id: string; name: string; x: number; y: number; facing: number[] }[] = []) {
   const hero = spriteMotion(motions, "player", s.x, s.y, now, reduced);
   const alive = allEnemies(s).filter(e => e.hp), ids = new Set(["player", ...alive.map(e => e.id ?? `village:${s.enemies.indexOf(e)}`)]);
   if (motions) for (const id of motions.keys()) if (!ids.has(id)) motions.delete(id);
@@ -194,6 +197,12 @@ export function drawWorld(ctx: CanvasRenderingContext2D, s: GameState, skin: HTM
         box(ctx, "#362e46", x - 2, y - 28, 20, 3); box(ctx, "#e9948d", x - 1, y - 27, Math.max(1, Math.round(e.hp / 18 * 18)), 1);
       } else { person(ctx, x, y, freeze > 0 ? "#80cbd1" : e.kind === "archer" ? "#a57c9f" : e.kind === "guard" ? "#778ba8" : "#af6978", e.kind, pose.walking ? Math.round(Math.sin(pose.travel * Math.PI) * 2) : 0, pose.facing); box(ctx, "#342e47", x + 3, y - 23, 10, 2); box(ctx, "#e59989", x + 3, y - 23, e.hp * (e.kind === "guard" ? 1.5 : 3), 1); }
     } });
+  });
+  peers.forEach(p => {
+    const pose = spriteMotion(motions, `online:${p.id}`, p.x, p.y, now, reduced, 110);
+    if (!visible(p.x, p.y)) return;
+    const [x, y] = xy(pose.x, pose.y), color = ["#b0dcf1", "#efb58c", "#d4b5ef", "#a6dfaa", "#eedba5", "#eda6b9", "#9ce2d8", "#c8cbd8"][parseInt(p.id.slice(0, 2), 16) % 8];
+    drawables.push({ y: pose.y, draw: () => { box(ctx, color, x + 2, y + 13, 12, 2); gamePlayer(ctx, skin, x + 8, y + 15, pose.facing, !reduced && pose.walking ? Math.round(Math.sin(pose.travel * Math.PI) * 2) : 0, 0); ctx.textAlign = "center"; ctx.font = "7px monospace"; ctx.fillStyle = "#171b1c"; ctx.fillRect(x + 8 - p.name.length * 2.15, y - 29, p.name.length * 4.3, 10); ctx.fillStyle = color; ctx.fillText(p.name, x + 8, y - 22); ctx.textAlign = "left"; } });
   });
   const [px, py] = xy(hero.x, hero.y), stride = !reduced && (hero.walking || !motions && moving) ? Math.round(Math.sin(motions ? hero.travel * Math.PI : now / 115) * 2) : 0;
   const jumpAge = now - jumpStarted, jumping = jumpAge >= 0 && jumpAge < 360, lift = jumping && !reduced ? Math.round(Math.sin(jumpAge / 360 * Math.PI) * 11) : 0;
