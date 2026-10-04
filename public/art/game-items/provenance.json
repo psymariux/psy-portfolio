@@ -1,0 +1,115 @@
+{
+  "version": "Minecraft Java 1.21.4",
+  "rights": "Minecraft artwork belongs to Mojang/Microsoft. Not covered by the project code license.",
+  "assets": {
+    "herb": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/wheat.png",
+      "sha256": "9ed5d3338d238528fa04c9fd86bd1e5f87a194576eed3f5e6bb86dcf18470039",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "ore": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/raw_iron.png",
+      "sha256": "5ac9321000afa9b49215970326fde0eb88bb7de518a8974d4e8ec38373c49ae6",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "medicine": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/potion.png",
+      "sha256": "6a09a39bb6c41bc92bd5eca1f51caf5b582a85f68206b164476c8e14a4669416",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "garden": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/wheat_seeds.png",
+      "sha256": "3239486bef9ea883e438c068cb97c24f1a38924b54b3c2e6209f792fc222c8d3",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "kunai": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/iron_sword.png",
+      "sha256": "ed1fa2f83955583e70a19791455d13989e8bd93b1d7240e775a57141022bed6b",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "armor": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/iron_chestplate.png",
+      "sha256": "028d1a738128c5622471a9d1b94f00b49a696e7c4fac3dfccd07272e50021f71",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "recover": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/iron_pickaxe.png",
+      "sha256": "b211a9b920d8f22ce5451780855155644d14ca7b85ab16d31f9c0b572cdda7ee",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "dash": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/leather_boots.png",
+      "sha256": "d54ca10f90b72004436fd9a6aa8d136a692f89f505056ae47d8395137b46637c",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "eye": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/ender_eye.png",
+      "sha256": "cb9003416a29bdd869a494467a01dba3403b221b88fe3e0a0dc41906d5d49afa",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "chakra": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/blaze_powder.png",
+      "sha256": "be1d8c93bbff955c94c194bb944b200d884d30fcc7e221fff739881d6ed5eca2",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "recall": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/compass_00.png",
+      "sha256": "4f39dc942808fb5fe37d3307eb22320523ead9bd38c808b54d516f20e20c9ae2",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "lantern": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/lantern.png",
+      "sha256": "ad3ff1ae9d2a3607ec393a9ec50637675e1d8a27846c6b06a04b7124bc8069f9",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "campfire": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/items/campfire.png",
+      "sha256": "9283c0e731db15be1095278b75a5d68b08bb39cd22d86ed02ab425219622b986",
+      "kind": "Unchanged item sprite; game labels may adapt its gameplay role."
+    },
+    "wood": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/blocks/oak_planks.png",
+      "sourceSha256": "3a33db67a3ba30537d0890a5cb37c8087ca336be89cbb1393a71c23224e361a8",
+      "sha256": "549839a96487e8da8c63f166458d0adc19cbf675dfcae76e4f34813ca7e1c69d",
+      "kind": "Original isometric inventory render from vanilla block faces."
+    },
+    "stone": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/blocks/cobblestone.png",
+      "sourceSha256": "bcda95fdf5afa91747657aa198fc0b69ebf44141de30a718075f74045e9a5def",
+      "sha256": "600abb5081edf940c8b79f3013fa1b2b3c859154e413a9ee9e8dde42572de7fc",
+      "kind": "Original isometric inventory render from vanilla block faces."
+    },
+    "trail": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/blocks/dirt_path_top.png",
+      "sourceSha256": "c4f922a0e28e1f2e4d97de81f1b97dc9386260ee4e9ca1ee9abd23e9119731fa",
+      "sha256": "b41121a8d18b01b9d5add3844163385a85913102d45d38976a954af7d3d84287",
+      "kind": "Original isometric inventory render from vanilla block faces."
+    },
+    "brick": {
+      "source": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/blocks/bricks.png",
+      "sourceSha256": "3242cb8e441c940156633b0d867e08c887ddaeaa32343b212d4b1e5ca3dae123",
+      "sha256": "b5dfe54acbf5baec214c6b7702d895f98416dd5e1da69b00ac2c0048fbd2a4c0",
+      "kind": "Original isometric inventory render from vanilla block faces."
+    },
+    "fence": {
+      "model": "oak_fence_inventory",
+      "modelsSource": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/blocks_models.json",
+      "modelsSha256": "d2ed51404786f7cc7fffebc60e55f07f822dccb60fe4b38daa5bb78bea8a355b",
+      "textureSources": {
+        "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/blocks/oak_planks.png": "3a33db67a3ba30537d0890a5cb37c8087ca336be89cbb1393a71c23224e361a8"
+      },
+      "sha256": "f3f2a080bff3c078819218ee056ce1bf7d7b1f6a155e8ca5e485beae14fb6304",
+      "kind": "Isometric render of the vanilla inventory model. Bridges use oak trapdoor artwork."
+    },
+    "bridge": {
+      "model": "oak_trapdoor_bottom",
+      "modelsSource": "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/blocks_models.json",
+      "modelsSha256": "d2ed51404786f7cc7fffebc60e55f07f822dccb60fe4b38daa5bb78bea8a355b",
+      "textureSources": {
+        "https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/master/data/1.21.4/blocks/oak_trapdoor.png": "9d9bcc9384d838118faa92d487125b7db883e953aa6b77b9bca5780fc8593697"
+      },
+      "sha256": "26eb10053edc174833d1df893458c07263d29d073019e7399840394f1ac8d1de",
+      "kind": "Isometric render of the vanilla inventory model. Bridges use oak trapdoor artwork."
+    }
+  }
+}
